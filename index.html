@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework Template</title>
+
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <script defer src="./assets/js/app.js"></script>
+
+    
+</head>
+<body>
+    
+    <div class="container mt-5" id='app'>
+
+        <div class="row">
+
+            <div class="col-lg-8">
+                <div class="d-flex justify-content-start">
+                    <div class="form-check mx-5">
+                        <input class="form-check-input" v-model='sort' value='up' type="radio" name="sortPrice" id="sortPriceUp">
+                        <label class="form-check-label" for="sortPriceUp">
+                          Сортировать по возрастанию цены
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" v-model='sort' value='down' type="radio" name="sortPrice" id="sortPriceDown">
+                        <label class="form-check-label" for="sortPriceDown">
+                            Сортировать по уменьшению цены
+                        </label>
+                      </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <input v-model='search' type="text" class='w-100' placeholder="Поиск" autocomplete="off" id="searchInput">
+            </div>
+
+        </div> 
+
+        <div class="row row-cols-1 row-cols-lg-4" id='goodsPlace'>
+
+            <!-- Пример разметки одного компонента -->
+           
+            <div class="cell p-2" v-for='item in showGoods'>
+                <div class="card p-2 pt-4 h-100 shadow">
+                    <img :src='item.image' class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title">{{item.title}}</h5>
+                    <p class="card-text">{{item.description.substr(0, 100)}}</p>
+                    <h4 class='text-end'>${{item.price}}</h4>
+                    </div>
+                </div>
+            </div>
+            
+            
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>
